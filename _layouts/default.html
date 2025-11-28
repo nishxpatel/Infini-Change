@@ -1,24 +1,98 @@
+<!--
+  ============================================================================
+  DEFAULT LAYOUT TEMPLATE
+  ============================================================================
+
+  This is the main template that ALL pages on the site use.
+
+  HOW IT WORKS:
+  - Every .md file with "layout: default" in its front matter uses this template
+  - The {{ content }} tag below gets replaced with each page's content
+  - Header and footer are included automatically on every page
+
+  TO MODIFY:
+  - Add new <link> tags in <head> for additional CSS or fonts
+  - Add new <script> tags before </body> for JavaScript
+  - DON'T remove the {{ }} or {% %} tags - they're Jekyll's template syntax
+
+  ============================================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--
+    CHARACTER ENCODING & VIEWPORT
+    - UTF-8 allows special characters and emojis
+    - viewport meta makes the site mobile-responsive
+  -->
   <meta charset="UTF-8">
-  <title>{{ page.title }} | {{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; padding: 0; line-height: 1.6; }
-    header, footer { background: #222; color: #fff; padding: 1rem; }
-    main { padding: 1rem; max-width: 900px; margin: 0 auto; }
-    a { color: #0069d9; }
-    nav { background: #333; padding: 0.5rem 1rem; display: flex; justify-content: center; }
-    nav a { margin: 0 1rem; color: #fff; text-decoration: none; font-weight: bold; padding: 0.3rem 0.6rem; border-radius: 3px; transition: background 0.2s; }
-    nav a:hover { background: #0069d9; color: #fff; }
-  </style>
+
+  <!--
+    SEO DESCRIPTION
+    - Uses page-specific description if available, otherwise falls back to site description
+    - The {{ }} syntax outputs the value of a variable
+    - The | is a "filter" that transforms the value (default: provides a fallback)
+  -->
+  <meta name="description" content="{{ page.description | default: site.description }}">
+
+  <!--
+    PAGE TITLE
+    - Combines the page title with site title (e.g., "Home | Infini-Change")
+    - page.title comes from the front matter of each .md file
+    - site.title comes from _config.yml
+  -->
+  <title>{{ page.title }} | {{ site.title }}</title>
+
+  <!--
+    FAVICON (Browser Tab Icon)
+    - Shows the infinity symbol in browser tabs and bookmarks
+    - relative_url filter ensures correct path on GitHub Pages
+  -->
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/infinity-16.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/images/infinity-512.png' | relative_url }}">
+
+  <!--
+    GOOGLE FONTS
+    - Loads the "Inter" font family for modern, readable text
+    - preconnect speeds up the font loading
+    - If you want to change fonts, replace the href URL
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!--
+    MAIN STYLESHEET
+    - All styling is in this one CSS file
+    - relative_url ensures correct path on GitHub Pages
+  -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
+
 <body>
+  <!--
+    HEADER INCLUDE
+    - {% include %} pulls in the content from _includes/header.html
+    - This keeps the header code in one place for easy editing
+  -->
   {% include header.html %}
+
+  <!--
+    MAIN CONTENT AREA
+    - {{ content }} is where each page's content gets inserted
+    - Everything from your .md files appears here
+    - The <main> tag helps with accessibility and SEO
+  -->
   <main>
     {{ content }}
   </main>
+
+  <!--
+    FOOTER INCLUDE
+    - Same as header - pulls from _includes/footer.html
+    - Keeps footer code centralized
+  -->
   {% include footer.html %}
 </body>
 </html>

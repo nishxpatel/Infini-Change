@@ -1,0 +1,29 @@
+<!--
+  ============================================================================
+  REUSABLE CALL-TO-ACTION SECTION
+  ============================================================================
+
+  Use this include to add a colorful CTA section with a heading, text, and button.
+
+  USAGE in your .md file:
+  {% include cta-section.html
+     heading="Ready to Take Action?"
+     text="Join us in building a better world."
+     button_text="Get Started"
+     button_url="/action"
+  %}
+
+  PARAMETERS:
+  - heading: (required) The main heading text
+  - text: (required) Supporting text/description
+  - button_text: (required) Text for the button
+  - button_url: (required) URL the button links to (use /pagename format)
+
+  ============================================================================
+-->
+
+<div class="cta-section">
+  <h3>{{ include.heading }}</h3>
+  <p>{{ include.text }}</p>
+  <a href="{{ include.button_url | relative_url }}" class="btn">{{ include.button_text }}</a>
+</div>

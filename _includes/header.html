@@ -1,11 +1,123 @@
-<header>
-  <div style="display: flex; align-items: center; gap: 16px;">
-    <img src="{{ '/assets/images/infinity-512.png' | relative_url }}" style="height: 40px; width: auto;" alt="Infini-Change logo" />
-    <h1>Infini-Change</h1>
+<!--
+  ============================================================================
+  SITE HEADER
+  ============================================================================
+
+  This file contains the header that appears at the top of every page.
+  It's "included" in the default layout template.
+
+  STRUCTURE:
+  1. Logo and site title (clickable, links to home)
+  2. Mobile menu toggle button (hamburger icon)
+  3. Navigation menu with links to all pages
+
+  TO ADD A NEW NAV LINK:
+  1. Copy one of the existing <a class="nav-link"> blocks
+  2. Change the URL in href="{{ '/pagename' | relative_url }}"
+  3. Update the {% if %} condition to match
+  4. Change the icon code (&#number;) - find codes at htmlarrows.com
+  5. Change the link text
+
+  ============================================================================
+-->
+
+<header class="site-header">
+
+  <!--
+    HEADER TOP SECTION
+    Contains the logo/title on the left and mobile menu button on the right
+  -->
+  <div class="header-top">
+
+    <!--
+      LOGO & SITE TITLE
+      - Wrapped in <a> tag so clicking it goes to homepage
+      - {{ '/' | relative_url }} creates the correct home URL
+      - The image is the infinity symbol logo
+    -->
+    <a href="{{ '/' | relative_url }}" class="logo-container">
+      <!-- Logo image - to change, replace the file at assets/images/infinity-512.png -->
+      <img src="{{ '/assets/images/infinity-512.png' | relative_url }}" alt="Infini-Change logo" />
+      <div>
+        <!-- Main site title - edit this text to change the site name -->
+        <h1 class="site-title">Infini-Change</h1>
+        <!-- Tagline - edit this to change the subtitle -->
+        <p class="site-tagline">Education & Action for Positive Human Change</p>
+      </div>
+    </a>
+
+    <!--
+      MOBILE MENU TOGGLE (Hamburger Button)
+      - Only visible on mobile devices (controlled by CSS)
+      - The onclick toggles the 'active' class on the nav menu
+      - &#9776; is the HTML code for the hamburger (☰) icon
+    -->
+    <button class="menu-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('active')">
+      &#9776;
+    </button>
+
   </div>
-  <nav>
-    <a href="{{ '/' | relative_url }}">Home</a>
-    <a href="{{ '/education' | relative_url }}">Education</a>
-    <a href="{{ '/action' | relative_url }}">Action</a>
+
+  <!--
+    MAIN NAVIGATION
+    - Contains all the page links
+    - On mobile, this is hidden until the hamburger is clicked
+  -->
+  <nav class="main-nav">
+    <div class="nav-container">
+
+      <!--
+        HOME LINK
+        - {% if page.url == '/' %} active{% endif %} adds 'active' class when on homepage
+        - This highlights the current page in the navigation
+        - &#127968; is the house emoji icon
+      -->
+      <a href="{{ '/' | relative_url }}" class="nav-link{% if page.url == '/' %} active{% endif %}">
+        <span class="nav-icon">&#127968;</span>
+        Home
+      </a>
+
+      <!--
+        ABOUT LINK
+        - Checks for both '/about' and '/about/' to handle trailing slashes
+        - &#128100; is the person silhouette emoji
+      -->
+      <a href="{{ '/about' | relative_url }}" class="nav-link{% if page.url == '/about' or page.url == '/about/' %} active{% endif %}">
+        <span class="nav-icon">&#128100;</span>
+        About
+      </a>
+
+      <!--
+        EDUCATION LINK
+        - &#128218; is the book emoji
+      -->
+      <a href="{{ '/education' | relative_url }}" class="nav-link{% if page.url == '/education' or page.url == '/education/' %} active{% endif %}">
+        <span class="nav-icon">&#128218;</span>
+        Education
+      </a>
+
+      <!--
+        ACTION LINK
+        - &#128170; is the flexed bicep emoji
+      -->
+      <a href="{{ '/action' | relative_url }}" class="nav-link{% if page.url == '/action' or page.url == '/action/' %} active{% endif %}">
+        <span class="nav-icon">&#128170;</span>
+        Action
+      </a>
+
+      <!--
+        TO ADD A NEW NAVIGATION LINK:
+        Copy and paste this template, then modify:
+
+        <a href="{{ '/your-page' | relative_url }}" class="nav-link{% if page.url == '/your-page' or page.url == '/your-page/' %} active{% endif %}">
+          <span class="nav-icon">&#128204;</span>
+          Your Page Name
+        </a>
+
+        Icon codes: https://www.htmlsymbols.xyz/unicode/
+      -->
+
+    </div>
   </nav>
+
 </header>

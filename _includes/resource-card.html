@@ -1,0 +1,52 @@
+<!--
+  ============================================================================
+  REUSABLE RESOURCE CARD COMPONENT
+  ============================================================================
+
+  Use this include to add a resource card (book, video, podcast, etc.)
+
+  USAGE in your .md file:
+  {% include resource-card.html
+     type="Book"
+     title="Book Title Here"
+     author="Author Name"
+     description="Brief description of the resource."
+     link="https://optional-link.com"
+     link_text="Read More"
+     featured=true
+  %}
+
+  PARAMETERS:
+  - type: (required) Type label like "Book", "Video", "Podcast"
+  - title: (required) Title of the resource
+  - author: (optional) Author/creator name
+  - description: (required) Brief description
+  - link: (optional) URL to the resource
+  - link_text: (optional) Text for the link, defaults to "Learn More"
+  - featured: (optional) Set to true for highlighted styling
+
+  ============================================================================
+-->
+
+<div class="resource-card{% if include.featured %} featured{% endif %}">
+  <!-- Resource type badge -->
+  <div class="resource-type">{{ include.type }}</div>
+
+  <!-- Resource title -->
+  <h4>{{ include.title }}</h4>
+
+  <!-- Author (if provided) -->
+  {% if include.author %}
+  <p class="resource-author">by {{ include.author }}</p>
+  {% endif %}
+
+  <!-- Description -->
+  <p>{{ include.description }}</p>
+
+  <!-- Link (if provided) -->
+  {% if include.link %}
+  <a href="{{ include.link }}" target="_blank" rel="noopener" class="resource-link">
+    {{ include.link_text | default: "Learn More" }} &rarr;
+  </a>
+  {% endif %}
+</div>

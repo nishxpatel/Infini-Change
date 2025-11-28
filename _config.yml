@@ -1,2 +1,64 @@
+# ============================================================================
+# INFINI-CHANGE SITE CONFIGURATION
+# ============================================================================
+#
+# This file contains the main settings for your Jekyll site.
+# Changes here require restarting the Jekyll server to take effect.
+#
+# Format: key: value
+# Comments start with #
+#
+# ============================================================================
+
+# BASIC SITE INFORMATION
+# ----------------------
+# These values are used throughout the site
+
+# Site title - appears in browser tab and header
 title: Infini-Change
-description: A site for education and action on world change.
+
+# Site description - used for SEO (search engines)
+# Keep it under 160 characters for best results
+description: Education and action resources for positive human change. Building a world where all humans are ensured the necessities of life.
+
+# Your site's URL (update this for production)
+# For GitHub Pages: https://USERNAME.github.io/REPO-NAME
+# url: "https://yourusername.github.io"
+# baseurl: "/Infini-Change"
+
+# AUTHOR INFORMATION
+# ------------------
+author:
+  name: Nish
+  email: ""  # Add your email if you want
+
+# BUILD SETTINGS
+# --------------
+# These control how Jekyll builds your site
+
+# Use kramdown for Markdown processing (GitHub Pages default)
+markdown: kramdown
+
+# Exclude files from the build
+# These won't appear in the _site folder or on the live site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - MAINTAINERS_GUIDE.md
+  - vendor
+  - .gitignore
+
+# PLUGINS
+# -------
+# Plugins extend Jekyll's functionality
+# Only plugins supported by GitHub Pages will work on GitHub Pages
+plugins:
+  - jekyll-seo-tag
+
+# ============================================================================
+# NOTES:
+# - After editing this file, restart Jekyll: Ctrl+C, then bundle exec jekyll serve
+# - YAML is sensitive to spacing - use 2 spaces for indentation, not tabs
+# - Strings with special characters should be in quotes
+# ============================================================================

@@ -1,0 +1,41 @@
+# ============================================================================
+# Infini-Change .gitignore
+# ============================================================================
+# This file tells Git which files/folders to ignore (not track)
+# These are typically generated files or local development artifacts
+
+# Jekyll build output
+# The _site folder is generated when Jekyll builds - GitHub Pages generates its own
+_site/
+
+# Jekyll cache
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby/Bundler dependencies
+# These are installed locally and shouldn't be in the repo
+vendor/
+.bundle/
+
+# Gemfile.lock can be included or excluded
+# Including it ensures consistent builds, so we keep it
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.log

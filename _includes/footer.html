@@ -1,3 +1,101 @@
-<footer>
-  <p>&copy; {{ site.time | date: '%Y' }} Infini-Change</p>
+<!--
+  ============================================================================
+  SITE FOOTER
+  ============================================================================
+
+  This file contains the footer that appears at the bottom of every page.
+  It's "included" in the default layout template.
+
+  STRUCTURE:
+  1. Three-column content area (About, Quick Links, Get Involved)
+  2. Bottom bar with copyright and legal links
+
+  TO MODIFY:
+  - Edit the text in any section directly
+  - Add/remove links by copying the <li><a>...</a></li> pattern
+  - Update the copyright year is automatic via {{ site.time | date: '%Y' }}
+
+  ============================================================================
+-->
+
+<footer class="site-footer">
+
+  <!--
+    FOOTER CONTENT - Three Column Layout
+    Uses CSS Grid to arrange into columns on desktop, stacks on mobile
+  -->
+  <div class="footer-content">
+
+    <!--
+      ABOUT SECTION
+      Brief description of the site's mission
+      Edit the <p> text to change the description
+    -->
+    <div class="footer-section">
+      <h4>About Infini-Change</h4>
+      <p>Dedicated to creating a world where all humans are ensured the necessities of life through education and collective action.</p>
+    </div>
+
+    <!--
+      QUICK LINKS SECTION
+      Main navigation links repeated for footer convenience
+
+      TO ADD A LINK:
+      <li><a href="{{ '/pagename' | relative_url }}">Link Text</a></li>
+    -->
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/about' | relative_url }}">About Nish</a></li>
+        <li><a href="{{ '/education' | relative_url }}">Education</a></li>
+        <li><a href="{{ '/action' | relative_url }}">Take Action</a></li>
+      </ul>
+    </div>
+
+    <!--
+      GET INVOLVED SECTION
+      Links to encourage engagement
+
+      For external links, add target="_blank" rel="noopener":
+      <a href="https://example.com" target="_blank" rel="noopener">Text</a>
+    -->
+    <div class="footer-section">
+      <h4>Get Involved</h4>
+      <ul class="footer-links">
+        <li><a href="{{ '/education' | relative_url }}">Learn the Fundamentals</a></li>
+        <li><a href="{{ '/action' | relative_url }}">Find Resources</a></li>
+        <!-- External link example - opens in new tab -->
+        <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!--
+    FOOTER BOTTOM BAR
+    Copyright notice and legal links
+  -->
+  <div class="footer-bottom">
+
+    <!--
+      COPYRIGHT NOTICE
+      {{ site.time | date: '%Y' }} automatically outputs the current year
+      This means you never have to manually update the year!
+    -->
+    <p class="copyright">&copy; {{ site.time | date: '%Y' }} Infini-Change. All rights reserved.</p>
+
+    <!--
+      LEGAL LINKS
+      Currently placeholder links (#)
+      Replace # with actual page URLs when you create privacy/terms pages:
+      <a href="{{ '/privacy' | relative_url }}">Privacy Policy</a>
+    -->
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </div>
+
+  </div>
+
 </footer>

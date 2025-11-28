@@ -1,0 +1,26 @@
+<!--
+  ============================================================================
+  REUSABLE CONTENT SECTION
+  ============================================================================
+
+  Use this include to add a styled content section with a heading.
+
+  USAGE in your .md file:
+  {% include content-section.html
+     id="my-section"
+     heading="Section Heading"
+     content="Your paragraph content here. Can include <strong>HTML</strong>."
+  %}
+
+  PARAMETERS:
+  - id: (optional) ID for anchor links (e.g., id="books" allows linking to #books)
+  - heading: (required) The section heading
+  - content: (required) The paragraph content (supports HTML)
+
+  ============================================================================
+-->
+
+<div{% if include.id %} id="{{ include.id }}"{% endif %} class="content-section">
+  <h2>{{ include.heading }}</h2>
+  <p>{{ include.content }}</p>
+</div>
